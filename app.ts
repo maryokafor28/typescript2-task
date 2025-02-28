@@ -2,6 +2,7 @@ interface TodoItem {
   id: number;
   task: string;
   completed: boolean;
+  dueDate: Date;
 }
 
 class TodoList {
@@ -36,5 +37,21 @@ class TodoList {
       }
     });
     return filteredTodos;
+  }
+  updateTodo(id: number, newTask: string): void {
+    this.todos.forEach((todo) => {
+      if (todo.id === id) {
+        todo.task = newTask;
+      }
+    });
+  }
+  updateDueDate(id: number, newDueDate: Date): void {
+    const todo = this.todos.find((todo) => todo.id === id);
+    if (todo) {
+      todo.dueDate = newDueDate;
+    }
+  }
+  clearCompletedTodos(): void {
+    this.todos = this.todos.filter((todo) => !todo.completed);
   }
 }
