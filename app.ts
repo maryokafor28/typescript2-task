@@ -55,3 +55,21 @@ class TodoList {
     this.todos = this.todos.filter((todo) => !todo.completed);
   }
 }
+
+const todolist = new TodoList();
+todolist.addTodo("New things to buy", new Date("2025-5-11"));
+todolist.addTodo("finish your task")
+console.log("To-do list");
+console.log(todolist.listTodos());
+
+todolist.completeTodo(1);
+console.log("completing to-do-list")
+console.log(todolist.listTodos());
+
+todolist.updateTodo("Take out the trash");
+console.log("Updated to-do-list");
+console.log(todolist.listTodos());
+
+todolist.removeTodo(2)
+console.log("removing to-do-list")
+console.log(todolist.listTodos();)
